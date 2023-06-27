@@ -9,6 +9,8 @@ class Square:
 
     def __init__(self, size=0):
         """
+        Initializaation of square
+
         Args:
             size: size of side of square
         """
@@ -18,6 +20,7 @@ class Square:
     def size(self):
         """
         find size
+        Return: size
         """
         return self.__size
 
@@ -40,7 +43,6 @@ class Square:
     def area(self):
         """
         area of square
-
         Returns:
             the area of the square
         """
