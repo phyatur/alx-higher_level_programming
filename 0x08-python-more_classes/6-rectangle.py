@@ -1,9 +1,11 @@
 #!/usr/bin/python3
-""" Defines rectangle class """
+""" defines rectangle class """
 
 
 class Rectangle:
     """ Rectangle with private instance attributes width and height """
+
+    number_of_instances = 0
 
     def __init__(self, width=0, height=0):
         """
@@ -13,6 +15,7 @@ class Rectangle:
             width: width of rectangle
             height: height of rectangle
         """
+        Rectangle.number_of_instances += 1
         self.__width = width
         self.__height = height
 
@@ -70,6 +73,6 @@ class Rectangle:
         return "Rectangle({:d}, {:d})".format(self.width, self.height)
 
     def __del__(self):
-        """ Prints a message when an instance is deleted """
+        """ Prints message when an instance is deleted """
         print("Bye rectangle...")
         Rectangle.number_of_instances -= 1
