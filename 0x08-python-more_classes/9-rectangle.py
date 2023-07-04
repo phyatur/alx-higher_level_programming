@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" defines rectangle class """
+""" Defines rectangle class """
 
 
 class Rectangle:
@@ -17,8 +17,8 @@ class Rectangle:
             height: height of rectangle
         """
         Rectangle.number_of_instances += 1
-        self.__width = width
-        self.__height = height
+        self.width = width
+        self.height = height
 
     @property
     def width(self):
@@ -70,7 +70,7 @@ class Rectangle:
         return string
 
     def __repr__(self):
-        """ Returns string respresentation of the rectangle """
+        """ Returns string representation of the rectangle """
         return "Rectangle({:d}, {:d})".format(self.width, self.height)
 
     def __del__(self):
@@ -89,5 +89,5 @@ class Rectangle:
 
     @classmethod
     def square(cls, size=0):
-        """ Returns new rectangle instance with width == height == size """
+        """ Returns new rectangle instance that is a square """
         return cls(size, size)
