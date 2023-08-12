@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" this module contains the class Square """
+""" Square Class """
 from models.rectangle import Rectangle
 
 
@@ -38,7 +38,7 @@ class Square(Rectangle):
                 setattr(self, k, v)
 
     def to_dictionary(self):
-        """ returns dictionary representation of square """
+        """ returns dictionary representation """
         square_dict = {}
         square_attrs = ["id", "size", "x", "y"]
         for attr in square_attrs:

@@ -1,17 +1,17 @@
 #!/usr/bin/python3
-""" First rectangle """
+""" Rectangle Class """
 from models.base import Base
 
 
 class Rectangle(Base):
-    """ class Rectangle inherits from base"""
+    """ empty class Rectangle """
     def __init__(self, width, height, x=0, y=0, id=None):
-        """ method __init__ Initialization a Rectangle """
-        super().__init__(id)
+        """ initializes empty Rectangle """
         self.width = width
         self.height = height
         self.x = x
         self.y = y
+        super().__init__(id)
 
     @property
     def width(self):
@@ -70,18 +70,18 @@ class Rectangle(Base):
         self.__y = value
 
     def area(self):
-        """ returns area value of the rectangle """
+        """ returns area """
         return self.__width * self.__height
 
     def display(self):
-        """ prints in stdout the Rectangle instance with the character '#' """
+        """ print the rectangle with character '#' """
         print("\n" * self.y, end="")
         for i in range(self.height):
             print(" " * self.x, end="")
             print("#" * self.width)
 
     def __str__(self):
-        """ prints the string representation of the rectangle """
+        """ prints the string representation """
         return "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}"\
             .format(self.id, self.x, self.y, self.width, self.height)
 
@@ -98,7 +98,7 @@ class Rectangle(Base):
                 setattr(self, k, v)
 
     def to_dictionary(self):
-        """ returns dictionary representation of rectangle """
+        """ returns dictionary representation """
         rect_dict = {}
         rect_attrs = ["id", "width", "height", "x", "y"]
         for attr in rect_attrs:
