@@ -32,6 +32,10 @@ class Rectangle:
         Args:
             value: new width
 
+        Raises:
+            TypeError: If the type of value is not an int
+            ValueError: If value is less than or equal to 0
+
         """
 
         if type(value) is not int:
@@ -52,6 +56,10 @@ class Rectangle:
 
         Args:
             value: new height
+
+        Raises:
+            TypeError: If the type of value is not an int
+            ValueError: If value is less than or equal to 0
 
         """
 
