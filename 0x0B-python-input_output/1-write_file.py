@@ -1,12 +1,11 @@
 #!/usr/bin/python3
-""" module 0-read_file that contains a function read_file """
+""" module 1-number_of_lines.py that contains a function number_of_lines """
 
 
 def write_file(filename="", text=""):
     """ a function that returns the number of characters written """
-
-    count = 0
-    with open(filename, encoding='utf-8') as f:
+    with open(filename, mode="r", encoding="utf-8") as f:
+        lines = 0
         for line in f:
-            count += 1
-    return count
+            lines += 1
+    return lines
