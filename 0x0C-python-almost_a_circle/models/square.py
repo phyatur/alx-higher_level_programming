@@ -1,64 +1,75 @@
 #!/usr/bin/python3
-"""Define Rectangle Class
 """
-
+Square Module
+"""
 from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
-    """Module Representation of Square
-"""
+    """Sqare Class
+    """
 
     def __init__(self, size, x=0, y=0, id=None):
-        """Initialization a Square
+        """initialize method
+        args:
+            size: square size
+            x: x position
+            y: y position
+            id: object id
         """
         super().__init__(size, size, x, y, id)
 
+    def __str__(self):
+        """print method
+        return:
+            formatted list
+        """
+        return ("[{}] ({}) {}/{} - {}".format(self.__class__.__name__,
+                                              self.id, self.x,
+                                              self.y, self.width))
+
     @property
     def size(self):
-        """module Square size getter
+        """width getter method
+        return:
+            size of width and height
         """
         return self.width
 
     @size.setter
     def size(self, value):
-        """module Square size setter
+        """width and height setter method
+        args:
+            value: size value
+        return:
+            na
         """
         self.width = value
         self.height = value
 
-    def __str__(self):
-        """module string represation of square
-        """
-        return "[Square] ({:d}) {:d}/{:d} - {:d}".format(self.id,
-                                                         self.x,
-                                                         self.y,
-                                                         self.width)
-
     def update(self, *args, **kwargs):
-        """module update square
+        """update square method
+        args:
+            args: pointer to arguments
+            kwargs: double pointer to key word arguments
+        return:
+            na
         """
-        if len(args):
-            for i, arg in enumerate(args):
-                if i == 0:
-                    self.id = arg
-                elif i == 1:
-                    self.size = arg
-                elif i == 2:
-                    self.x = arg
-                elif i == 3:
-                    self.y = arg
+
+        if args:
+            i = 0
+            listme = ['id', 'size', 'x', 'y']
+            for arg in args:
+                setattr(self, listme[i], arg)
+                i += 1
+            return
         else:
             for key, value in kwargs.items():
-                if hasattr(self, key) is True:
-                    setattr(self, key, value)
+                setattr(self, key, value)
 
     def to_dictionary(self):
-        """retrun dictonary
+        """returns a dictionary of Square
+        return:
+            dictionary
         """
-        return {
-            "id": self.id,
-            "size": self.size,
-            "x": self.x,
-            "y": self.y
-        }
+        return {'id': self.id, 'x': self.x, 'size': self.size, 'y': self.y}
