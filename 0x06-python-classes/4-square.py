@@ -1,51 +1,58 @@
 #!/usr/bin/python3
-""" A square class definition """
 
+""" This module contains a Square class """
 
 class Square:
-    """ A square class with private attribute size
+    """ A square class """
+    def __init__(self, size = 0):
+        """
+        Instantiation Method
+        
+        Args:
+        size (int): the size of the square
 
-    Args:
-        size: size of square
-
-    """
-
-
-    def __init__(self, size=0):
-        if type(size) is int:
-            if size < 0:
-                raise ValueError("size must be >= 0")
-            else:
-                self.__size = size
-        else:
+        Exceptions:
+        TypeError: if size is not an integer
+        ValueError: if size is less than 0
+        """
+        if type(size) is not int:
             raise TypeError("size must be an integer")
-
-
+        elif size < 0:
+            raise ValueError("size must be >= 0")
+        else:
+            self.__size = size
+        
     def area(self):
-        """ Area of a square
-
-        Returns:
-            the current square area 
+        """
+        This method returns the current square area
+        
+        Return:
+        The current square area
         """
         return self.__size * self.__size
 
- 
     @property
     def size(self):
-        """ Size of square
-
-        Returns:
-            size of square
+        """ 
+        This method retrieves the private instance attribute size 
+        
+        Return:
+            size (int): the size of the square
         """
         return self.__size
 
-
     @size.setter
     def size(self, value):
-        """ Set size of square
-
-        Args:
-            value: value to set for size 
         """
-        if type(value) is int:
-            if value < 0:
+        This method sets the private instance attribute size 
+        
+        Exceptions:
+        TypeError: if size is not an integer
+        ValueError: if size is less than 0
+        """
+        if type(value) is not int:
+            raise TypeError("size must be an integer")
+        elif value < 0:
+            raise ValueError("size must be >= 0")
+        else:
+            self.__size = value
